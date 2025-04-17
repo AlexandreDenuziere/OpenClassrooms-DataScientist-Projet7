@@ -5,7 +5,7 @@ import requests
 
 st.title("Prêt à dépenser - Scoring client")
 
-DATA_URL= ("./cleaned_data/test_data_cleaned.csv")
+DATA_URL= ("/data/test_data_cleaned.csv")
 
 @st.cache_data
 def load_data():
