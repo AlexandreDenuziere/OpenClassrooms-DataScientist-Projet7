@@ -1,6 +1,6 @@
 FROM python:3
 
-WORKDIR .
+WORKDIR /dashboard
 
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
