@@ -19,15 +19,12 @@ jobs:
 
       - name: Deploy to VPS
         run: |
-          ssh -o StrictHostKeyChecking=no ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} bash -s << 'EOF'
-      deploy() {
-        cd /home/${{ secrets.VPS_USER }}/OpenClassrooms-DataScientist-Projet7
-        git lfs fetch --all
-        git pull origin main
-        docker-compose down
-        docker-compose up --build -d
-        python3 - m pip install pytest requests
-        pytest tests/
-      }
-      deploy
-      EOF
+          ssh -o StrictHostKeyChecking=no ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} << 'EOF'
+            cd /home/${{ secrets.VPS_USER }}/OpenClassrooms-DataScientist-Projet7
+            git lfs fetch --all
+            git pull origin main
+            docker-compose down
+            docker-compose up --build -d
+            python3 -m pip install pytest requests
+            pytest tests/
+          EOF
