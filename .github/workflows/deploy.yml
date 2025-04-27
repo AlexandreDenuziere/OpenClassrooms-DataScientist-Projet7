@@ -30,4 +30,4 @@ jobs:
               pytest tests/
             }
             deploy
-        ENDSSH
+          ENDSSH
