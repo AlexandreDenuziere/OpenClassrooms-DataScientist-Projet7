@@ -32,7 +32,7 @@ def test_api_valid_customer():
 def test_api_no_id():
     response = requests.get(api_url)
     assert response.status_code == 200
-    assert "Not found" in response.text
+    assert "Error" in response.text
 
 def test_api_invalid_id():
     response = requests.get(f"{api_url}?id=0")
