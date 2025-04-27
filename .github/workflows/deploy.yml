@@ -25,6 +25,7 @@ jobs:
             git pull origin main
             docker-compose down
             docker-compose up --build -d
-            pipx install pytest requests
+            pipx install pytest 
+            pipx install requests --include-deps
             pytest tests/
           EOF
