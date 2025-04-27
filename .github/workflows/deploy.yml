@@ -25,6 +25,10 @@ jobs:
             git pull origin main
             docker-compose down
             docker-compose up --build -d
-            python3 -m pip install pytest requests
+            python3 -m venv venv
+            source venv/bin/activate
+            pip install --no-cache-dir pytest requests
             pytest tests/
+            deactivate
+            rm -rf venv
           EOF
